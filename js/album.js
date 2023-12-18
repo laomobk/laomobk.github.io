@@ -49,14 +49,19 @@ function initAlbumFrameWindow() {
     win.style.height = (containerHeight - windowPadding * 2) + 'px';
 }
 
-function swipeContainerWith(window_name) {
+function swipeContainerWith(window_name, catalog, count) {
     var collection_container = document.getElementById('__collection_poster_container');
     var album_container = document.getElementById('__album_frame_container');
     var title = document.getElementById('__album_frame_window_title');
+    var frame = document.getElementById('__album_page_frame');
 
-    collection_container.style.left = '-100%';
-    album_container.style.left = '0px';
-    title.innerText = window_name;
+    setTimeout(() => {
+        collection_container.style.left = '-100%';
+        album_container.style.left = '0px';
+        title.innerText = window_name;
+    }, 100);
+
+    frame.src = './_album_page.html?catalog=' + catalog + '&count=' + count;
 }
 
 function swipeBackContainer() {

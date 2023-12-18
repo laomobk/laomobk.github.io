@@ -10,6 +10,12 @@ window.onload = function() {
     initDetailNavi2Item();
 }
 
+window.onresize = function() {
+    initMainBox();
+    initDetailNaviItem();
+    initDetailNavi2Item();
+}
+
 function onWeaponNaviClick(weapon_id) {
     if (weapon_id == page_current_weapon_id) {
         return;

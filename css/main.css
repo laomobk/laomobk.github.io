@@ -269,3 +269,7 @@ body {
     margin-left: 50px;
     opacity: 0;
 }
+
+.name-box:active {
+    scale: 0.98;
+}

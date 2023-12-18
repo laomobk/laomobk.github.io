@@ -42,6 +42,8 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: cover;
+
+                overflow: hidden;
             }
 
             iframe {
@@ -74,7 +76,8 @@
                             <td class="navi-item" onclick="setFrameUrl('./pages/main.html#char-story')"><div class="navi-item-stick"></div>故事</td>
                             <td class="navi-item" onclick="setFrameUrl('./pages/weapon.html')"><div class="navi-item-stick"></div>武器</td>
                             <td class="navi-item" onclick="setFrameUrl('./pages/album.html')"><div class="navi-item-stick"></div>相册</td>
-                            <td class="navi-item" onclick="switchNaviBox(0)"><div class="navi-item-stick"></div><span id="__more_text">演示</span></td>
+                            <td class="navi-item" onclick="switchNaviBox(0, './pages/_menu_panel.html')"><div class="navi-item-stick"></div><span id="__more_text">演示</span></td>
+                            <td class="navi-item" onclick="switchNaviBox(1, './pages/_quest.html')"><div class="navi-item-stick"></div><span id="__more_text_2">问卷</span></td>
                         </tr>
                     </table>
                 </div>
@@ -94,10 +97,18 @@
             (() => {
                     console.log('init frame.');
                     var frame = document.getElementById('__frame');
+                    var menu_frame = document.getElementById('__menu_panel_frame');
     
                     frame.addEventListener( "load", function(){  
                         console.log('frame load complete');
                         frame.style.opacity = '1';
+
+                        this.removeEventListener( "load", arguments.call, false);  
+                    }, false);
+                    
+                    menu_frame.addEventListener( "load", function(){  
+                        console.log('menu frame load complete');
+                        menu_frame.style.opacity = '1';
 
                         this.removeEventListener( "load", arguments.call, false);  
                     }, false);

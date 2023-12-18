@@ -59,15 +59,26 @@
     
     <script>
         window.onload = () => {
+            settingBody();
+        };
+
+        window.onresize = () => {
+            settingBody();
+        }
+
+        function settingBody() {
             console.log('menu panel setting: ' + window.innerWidth + 'x' + window.innerHeight);
 
             var body = document.getElementById('__panel_body');
             var video = document.getElementById('__video_char_demo');
-            body.style.height = window.innerHeight + 'px';
+
+            var box_height = window.innerHeight - 66;
+
+            body.style.height = box_height + 'px';
             body.style.width = window.innerWidth + 'px';
-            video.style.height = window.innerHeight + 'px';
+            video.style.height = box_height + 'px';
             video.style.width = window.innerWidth + 'px';
-        };
+        }
     </script>
 </body>
 </html>
